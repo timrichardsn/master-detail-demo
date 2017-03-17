@@ -14,4 +14,21 @@ extension NSManagedObjectContext {
         guard let managedModel = NSEntityDescription.insertNewObject(forEntityName: A.entityName, into: self) as? A else { fatalError("Trying to insert object with incorrect type") }
         return managedModel
     }
+    
+    func saveOrRollback() -> Bool {
+        do {
+            try save()
+            return true
+        } catch {
+            rollback()
+            return false
+        }
+    }
+    
+    func execute(block: @escaping () -> ()) {
+        perform {
+            block()
+            _ = self.saveOrRollback()
+        }
+    }
 }

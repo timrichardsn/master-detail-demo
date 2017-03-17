@@ -13,4 +13,9 @@ final class Post:NSManagedObject, ManagedModel {
     @NSManaged fileprivate(set) var userId:Int16
     @NSManaged fileprivate(set) var title:String?
     @NSManaged fileprivate(set) var body:String?
+    
+    static func insertInto(managedObjectContext:NSManagedObjectContext) -> Post {
+        let post:Post = managedObjectContext.insertManaged()
+        return post
+    }
 }
