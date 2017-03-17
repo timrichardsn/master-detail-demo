@@ -8,7 +8,7 @@
 
 import CoreData
 
-final class Post:NSManagedObject {
+final class Post:NSManagedObject, ManagedModel {
     @NSManaged fileprivate(set) var postId:Int16
     @NSManaged fileprivate(set) var userId:Int16
     @NSManaged fileprivate(set) var title:String?
