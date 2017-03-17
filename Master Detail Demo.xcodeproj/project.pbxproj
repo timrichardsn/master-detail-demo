@@ -14,6 +14,7 @@
 		227CE0BD1E7C248F00689464 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227CE0BB1E7C248F00689464 /* LaunchScreen.storyboard */; };
 		227CE0CD1E7C2A5800689464 /* MasterDetail.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227CE0CB1E7C2A5800689464 /* MasterDetail.xcdatamodeld */; };
 		227CE0D51E7C2BCA00689464 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CE0D41E7C2BCA00689464 /* Post.swift */; };
+		227CE0D71E7C2C8D00689464 /* ManagedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CE0D61E7C2C8D00689464 /* ManagedModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		227CE0BE1E7C248F00689464 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		227CE0CC1E7C2A5800689464 /* MasterDetail.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MasterDetail.xcdatamodel; sourceTree = "<group>"; };
 		227CE0D41E7C2BCA00689464 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		227CE0D61E7C2C8D00689464 /* ManagedModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			children = (
 				227CE0CB1E7C2A5800689464 /* MasterDetail.xcdatamodeld */,
 				227CE0D41E7C2BCA00689464 /* Post.swift */,
+				227CE0D61E7C2C8D00689464 /* ManagedModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227CE0D71E7C2C8D00689464 /* ManagedModel.swift in Sources */,
 				227CE0B21E7C248F00689464 /* ViewController.swift in Sources */,
 				227CE0CD1E7C2A5800689464 /* MasterDetail.xcdatamodeld in Sources */,
 				227CE0B01E7C248F00689464 /* AppDelegate.swift in Sources */,
