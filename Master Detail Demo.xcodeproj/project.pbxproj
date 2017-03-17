@@ -18,6 +18,7 @@
 		227CE0D91E7C373F00689464 /* PostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CE0D81E7C373F00689464 /* PostsTableViewController.swift */; };
 		227CE0DF1E7C3A8600689464 /* NSPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CE0DE1E7C3A8600689464 /* NSPersistentContainer.swift */; };
 		227CE0E11E7C3B2200689464 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CE0E01E7C3B2200689464 /* UIViewController.swift */; };
+		227CE0E31E7C515D00689464 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CE0E21E7C515D00689464 /* NSManagedObjectContext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		227CE0D81E7C373F00689464 /* PostsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsTableViewController.swift; sourceTree = "<group>"; };
 		227CE0DE1E7C3A8600689464 /* NSPersistentContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPersistentContainer.swift; sourceTree = "<group>"; };
 		227CE0E01E7C3B2200689464 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		227CE0E21E7C515D00689464 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				227CE0DE1E7C3A8600689464 /* NSPersistentContainer.swift */,
 				227CE0E01E7C3B2200689464 /* UIViewController.swift */,
+				227CE0E21E7C515D00689464 /* NSManagedObjectContext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				227CE0CD1E7C2A5800689464 /* MasterDetail.xcdatamodeld in Sources */,
 				227CE0B01E7C248F00689464 /* AppDelegate.swift in Sources */,
 				227CE0E11E7C3B2200689464 /* UIViewController.swift in Sources */,
+				227CE0E31E7C515D00689464 /* NSManagedObjectContext.swift in Sources */,
 				227CE0D51E7C2BCA00689464 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
