@@ -10,9 +10,9 @@
 		227CE0B01E7C248F00689464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CE0AF1E7C248F00689464 /* AppDelegate.swift */; };
 		227CE0B21E7C248F00689464 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CE0B11E7C248F00689464 /* ViewController.swift */; };
 		227CE0B51E7C248F00689464 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227CE0B31E7C248F00689464 /* Main.storyboard */; };
-		227CE0B81E7C248F00689464 /* Master_Detail_Demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227CE0B61E7C248F00689464 /* Master_Detail_Demo.xcdatamodeld */; };
 		227CE0BA1E7C248F00689464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 227CE0B91E7C248F00689464 /* Assets.xcassets */; };
 		227CE0BD1E7C248F00689464 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227CE0BB1E7C248F00689464 /* LaunchScreen.storyboard */; };
+		227CE0CD1E7C2A5800689464 /* MasterDetail.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227CE0CB1E7C2A5800689464 /* MasterDetail.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +20,10 @@
 		227CE0AF1E7C248F00689464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		227CE0B11E7C248F00689464 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		227CE0B41E7C248F00689464 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		227CE0B71E7C248F00689464 /* Master_Detail_Demo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Master_Detail_Demo.xcdatamodel; sourceTree = "<group>"; };
 		227CE0B91E7C248F00689464 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		227CE0BC1E7C248F00689464 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		227CE0BE1E7C248F00689464 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		227CE0CC1E7C2A5800689464 /* MasterDetail.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MasterDetail.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +56,23 @@
 		227CE0AE1E7C248F00689464 /* Master Detail Demo */ = {
 			isa = PBXGroup;
 			children = (
+				227CE0C41E7C286E00689464 /* Models */,
 				227CE0AF1E7C248F00689464 /* AppDelegate.swift */,
 				227CE0B11E7C248F00689464 /* ViewController.swift */,
 				227CE0B31E7C248F00689464 /* Main.storyboard */,
 				227CE0B91E7C248F00689464 /* Assets.xcassets */,
 				227CE0BB1E7C248F00689464 /* LaunchScreen.storyboard */,
 				227CE0BE1E7C248F00689464 /* Info.plist */,
-				227CE0B61E7C248F00689464 /* Master_Detail_Demo.xcdatamodeld */,
 			);
 			path = "Master Detail Demo";
+			sourceTree = "<group>";
+		};
+		227CE0C41E7C286E00689464 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				227CE0CB1E7C2A5800689464 /* MasterDetail.xcdatamodeld */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +148,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				227CE0B81E7C248F00689464 /* Master_Detail_Demo.xcdatamodeld in Sources */,
 				227CE0B21E7C248F00689464 /* ViewController.swift in Sources */,
+				227CE0CD1E7C2A5800689464 /* MasterDetail.xcdatamodeld in Sources */,
 				227CE0B01E7C248F00689464 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,13 +318,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		227CE0B61E7C248F00689464 /* Master_Detail_Demo.xcdatamodeld */ = {
+		227CE0CB1E7C2A5800689464 /* MasterDetail.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				227CE0B71E7C248F00689464 /* Master_Detail_Demo.xcdatamodel */,
+				227CE0CC1E7C2A5800689464 /* MasterDetail.xcdatamodel */,
 			);
-			currentVersion = 227CE0B71E7C248F00689464 /* Master_Detail_Demo.xcdatamodel */;
-			path = Master_Detail_Demo.xcdatamodeld;
+			currentVersion = 227CE0CC1E7C2A5800689464 /* MasterDetail.xcdatamodel */;
+			path = MasterDetail.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
