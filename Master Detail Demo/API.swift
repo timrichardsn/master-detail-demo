@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias PostsFetchResult = [[String:Any]]
+
 enum API {
     case posts, users, albums, photos
 }
@@ -29,19 +31,18 @@ extension API {
     var url:URL {
         return base.appendingPathComponent(path)
     }
+    
+    var httpMethod:String {
+        switch self {
+        default: return "GET"
+        }
+    }
 }
 
 extension API {
-    func fetch() -> Result<String> {
+    func fetch(completion: @escaping (Result<PostsFetchResult>) -> ()) {
         var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        let task = URLSession.shared.dataTask(with: request) { (data, _, _) in
-            
-        }
-        
-        task.resume()
-        
-        return Result.success("")
+        request.httpMethod = httpMethod
+        request.execute(completion: completion)
     }
 }

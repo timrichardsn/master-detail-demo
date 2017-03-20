@@ -21,6 +21,7 @@
 		229EE4D51E8013CB00E53A80 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EE4D41E8013CB00E53A80 /* AppCoordinator.swift */; };
 		229EE4D71E80241C00E53A80 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EE4D61E80241C00E53A80 /* API.swift */; };
 		229EE4D91E80260B00E53A80 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EE4D81E80260B00E53A80 /* Result.swift */; };
+		229EE4DB1E802C4A00E53A80 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EE4DA1E802C4A00E53A80 /* URLRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		229EE4D41E8013CB00E53A80 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppCoordinator.swift; path = Coordinators/AppCoordinator.swift; sourceTree = "<group>"; };
 		229EE4D61E80241C00E53A80 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		229EE4D81E80260B00E53A80 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		229EE4DA1E802C4A00E53A80 /* URLRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				227CE0DE1E7C3A8600689464 /* NSPersistentContainer.swift */,
 				227CE0E01E7C3B2200689464 /* UIViewController.swift */,
 				227CE0E21E7C515D00689464 /* NSManagedObjectContext.swift */,
+				229EE4DA1E802C4A00E53A80 /* URLRequest.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				229EE4D71E80241C00E53A80 /* API.swift in Sources */,
 				227CE0D71E7C2C8D00689464 /* ManagedModel.swift in Sources */,
 				227CE0D91E7C373F00689464 /* PostsTableViewController.swift in Sources */,
+				229EE4DB1E802C4A00E53A80 /* URLRequest.swift in Sources */,
 				229EE4D51E8013CB00E53A80 /* AppCoordinator.swift in Sources */,
 				227CE0DF1E7C3A8600689464 /* NSPersistentContainer.swift in Sources */,
 				229EE4D91E80260B00E53A80 /* Result.swift in Sources */,
