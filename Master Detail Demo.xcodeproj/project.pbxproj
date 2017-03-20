@@ -22,6 +22,7 @@
 		229EE4D71E80241C00E53A80 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EE4D61E80241C00E53A80 /* API.swift */; };
 		229EE4D91E80260B00E53A80 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EE4D81E80260B00E53A80 /* Result.swift */; };
 		229EE4DB1E802C4A00E53A80 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EE4DA1E802C4A00E53A80 /* URLRequest.swift */; };
+		229EE4DE1E80425300E53A80 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EE4DD1E80425300E53A80 /* PostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		229EE4D61E80241C00E53A80 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		229EE4D81E80260B00E53A80 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		229EE4DA1E802C4A00E53A80 /* URLRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
+		229EE4DD1E80425300E53A80 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		227CE0AE1E7C248F00689464 /* Master Detail Demo */ = {
 			isa = PBXGroup;
 			children = (
+				229EE4DC1E80423600E53A80 /* Cells */,
 				229EE4D31E8013B700E53A80 /* Coordinators */,
 				227CE0DD1E7C3A3C00689464 /* Extensions */,
 				227CE0C41E7C286E00689464 /* Models */,
@@ -124,6 +127,14 @@
 				229EE4D41E8013CB00E53A80 /* AppCoordinator.swift */,
 			);
 			name = Coordinators;
+			sourceTree = "<group>";
+		};
+		229EE4DC1E80423600E53A80 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				229EE4DD1E80425300E53A80 /* PostTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +212,7 @@
 			files = (
 				229EE4D71E80241C00E53A80 /* API.swift in Sources */,
 				227CE0D71E7C2C8D00689464 /* ManagedModel.swift in Sources */,
+				229EE4DE1E80425300E53A80 /* PostTableViewCell.swift in Sources */,
 				227CE0D91E7C373F00689464 /* PostsTableViewController.swift in Sources */,
 				229EE4DB1E802C4A00E53A80 /* URLRequest.swift in Sources */,
 				229EE4D51E8013CB00E53A80 /* AppCoordinator.swift in Sources */,

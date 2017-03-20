@@ -17,7 +17,7 @@ class PostsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
+        
         let request = Post.sortedFetchRequest
         request.fetchBatchSize = 20
         request.returnsObjectsAsFaults = false
@@ -25,7 +25,6 @@ class PostsTableViewController: UITableViewController {
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController?.delegate = self
         try! fetchedResultsController?.performFetch()
-         */
     }
 }
 
@@ -37,20 +36,23 @@ extension PostsTableViewController: NSFetchedResultsControllerDelegate {
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        guard let indexPath = indexPath else { return }
         
         switch type {
         case .insert:
-            tableView.insertRows(at: [indexPath], with: .fade)
+            guard let newIndexPath = newIndexPath else { fatalError("New index path should be not nil") }
+            tableView.insertRows(at: [newIndexPath], with: .fade)
         case .update:
+            guard let indexPath = indexPath else { fatalError("Index path should be not nil") }
             let post = fetchedResultsController?.object(at: indexPath)
             guard let cell = tableView.cellForRow(at: indexPath) else { break }
             cell.textLabel?.text = post?.title
         case .move:
+            guard let indexPath = indexPath else { fatalError("Index path should be not nil") }
             guard let newIndexPath = newIndexPath else { fatalError("New index path should be not nil") }
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.insertRows(at: [newIndexPath], with: .fade)
         case .delete:
+            guard let indexPath = indexPath else { fatalError("Index path should be not nil") }
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -65,7 +67,7 @@ extension PostsTableViewController: NSFetchedResultsControllerDelegate {
 extension PostsTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = fetchedResultsController?.object(at: indexPath)
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
         cell.textLabel?.text = post?.title
         return cell
     }
@@ -74,10 +76,6 @@ extension PostsTableViewController {
 // MARK: - UITableViewDataSource
 
 extension PostsTableViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let section = fetchedResultsController?.sections?[section] else { return 0 }
         return section.numberOfObjects

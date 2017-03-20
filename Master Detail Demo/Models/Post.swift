@@ -26,4 +26,8 @@ final class Post:NSManagedObject, ManagedModel {
         post.body = data["body"] as? String
         return post
     }
+    
+    static var defaultSortDescriptors: [NSSortDescriptor] {
+        return [NSSortDescriptor(key: #keyPath(postId), ascending: false)]
+    }
 }
