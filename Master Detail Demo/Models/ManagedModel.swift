@@ -27,6 +27,6 @@ extension ManagedModel {
 
 extension ManagedModel where Self: NSManagedObject {
     static var entityName: String {
-        return String(describing: self)
+        return entity().name!
     }
 }

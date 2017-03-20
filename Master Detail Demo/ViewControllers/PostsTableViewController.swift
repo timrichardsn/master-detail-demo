@@ -24,7 +24,8 @@ class PostsTableViewController: UITableViewController {
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController?.delegate = self
-        try! fetchedResultsController?.performFetch()*/
+        try! fetchedResultsController?.performFetch()
+         */
     }
 }
 
@@ -36,7 +37,7 @@ extension PostsTableViewController: NSFetchedResultsControllerDelegate {
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        guard let indexPath = indexPath else { fatalError("Index path should be not nil") }
+        guard let indexPath = indexPath else { return }
         
         switch type {
         case .insert:
@@ -64,7 +65,7 @@ extension PostsTableViewController: NSFetchedResultsControllerDelegate {
 extension PostsTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = fetchedResultsController?.object(at: indexPath)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = UITableViewCell()
         cell.textLabel?.text = post?.title
         return cell
     }

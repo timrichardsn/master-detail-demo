@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias PostsFetchResult = [[String:Any]]
+typealias PostsFetchResult = [PostData]
 
 enum API {
     case posts, users, albums, photos
@@ -17,7 +17,7 @@ enum API {
 extension API {
     var base:URL {
         // consider extracting further into it's own enum "Endpoint" ?
-        guard let url = URL(string: "http://jsonplaceholder.typicode.com") else { fatalError("Invalid url") }
+        guard let url = URL(string: "https://jsonplaceholder.typicode.com") else { fatalError("Invalid url") }
         return url
     }
     

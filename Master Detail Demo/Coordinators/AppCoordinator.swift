@@ -18,7 +18,28 @@ extension AppCoordinator {
     func start(window:UIWindow?) {
         NSPersistentContainer.setup { (container) in
             self.persistentContainer = container
-            window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SplitViewController")
+            
+            guard let splitController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SplitViewController") as? UISplitViewController else { return }
+            guard let nav = splitController.viewControllers[0] as? UINavigationController else { return }
+            
+            let postsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: PostsTableViewController.name) as! PostsTableViewController
+            postsController.managedObjectContext = container.viewContext
+            nav.viewControllers = [postsController]
+            
+            window?.rootViewController = splitController
+            self.fetchPosts()
         }
+    }
+}
+
+fileprivate extension AppCoordinator {
+    func fetchPosts() {
+        API.posts.fetch(completion: { (result) in
+            guard case let .success(value) = result, let context = self.persistentContainer?.viewContext else { return }
+            
+            context.performChanges(inBlock: {
+                value.forEach { _ = Post.insertInto(managedObjectContext: context, data: $0) }
+            })
+        })
     }
 }

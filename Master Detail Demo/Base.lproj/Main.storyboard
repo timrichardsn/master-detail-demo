@@ -82,9 +82,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="DsF-0j-3nE" kind="relationship" relationship="rootViewController" id="Tao-Tz-t1D"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PTX-Sb-ter" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
