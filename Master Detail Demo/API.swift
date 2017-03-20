@@ -16,7 +16,9 @@ enum API {
 
 extension API {
     var base:URL {
-        return URL(string: "http://jsonplaceholder.typicode.com")!
+        // consider extracting further into it's own enum "Endpoint" ?
+        guard let url = URL(string: "http://jsonplaceholder.typicode.com") else { fatalError("Invalid url") }
+        return url
     }
     
     var path:String {
