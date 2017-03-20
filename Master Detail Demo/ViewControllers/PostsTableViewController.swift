@@ -17,14 +17,14 @@ class PostsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        /*
         let request = Post.sortedFetchRequest
         request.fetchBatchSize = 20
         request.returnsObjectsAsFaults = false
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController?.delegate = self
-        try! fetchedResultsController?.performFetch()
+        try! fetchedResultsController?.performFetch()*/
     }
 }
 

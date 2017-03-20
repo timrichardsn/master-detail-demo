@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zlp-f8-hkb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,49 +10,80 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="S3a-f8-Jyf">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Master_Detail_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0RJ-fF-2tB" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="u92-AQ-yjc"/>
+                        <viewControllerLayoutGuide type="bottom" id="EQl-Oz-Sg0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="DPa-Ne-Zg3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dtu-AE-Mzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="721" y="860"/>
         </scene>
-        <!--Posts Table View Controller-->
-        <scene sceneID="p8D-3u-qVf">
+        <!--Challenge Accepted!-->
+        <scene sceneID="3Sv-M7-ccI">
             <objects>
-                <tableViewController storyboardIdentifier="PostsTableViewController" id="4Q2-kS-7Uh" customClass="PostsTableViewController" customModule="Master_Detail_Demo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vFt-Zt-i66">
+                <tableViewController storyboardIdentifier="PostsTableViewController" clearsSelectionOnViewWillAppear="NO" id="DsF-0j-3nE" customClass="PostsTableViewController" customModule="Master_Detail_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="b8W-TG-zcq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="gZI-BM-NhS">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cmK-F7-t5u">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gZI-BM-NhS" id="A2e-Xj-hzk">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cmK-F7-t5u" id="WbG-eT-J4q">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="4Q2-kS-7Uh" id="VKC-hz-ehO"/>
-                            <outlet property="delegate" destination="4Q2-kS-7Uh" id="oao-4P-OCh"/>
+                            <outlet property="dataSource" destination="DsF-0j-3nE" id="06g-YK-8yw"/>
+                            <outlet property="delegate" destination="DsF-0j-3nE" id="dCs-Wh-dBU"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Challenge Accepted!" id="L3A-5O-dNI"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="83l-Wj-snq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BEA-jG-TOR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="873" y="38"/>
+            <point key="canvasLocation" x="1673" y="205"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="j1f-Af-4dd">
+            <objects>
+                <navigationController id="niu-0p-rFz" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dNC-7K-O8i">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DsF-0j-3nE" kind="relationship" relationship="rootViewController" id="Tao-Tz-t1D"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PTX-Sb-ter" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="721" y="205"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="ud8-ah-UHD">
+            <objects>
+                <splitViewController id="Zlp-f8-hkb" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="niu-0p-rFz" kind="relationship" relationship="masterViewController" id="ZRx-BS-Koz"/>
+                        <segue destination="0RJ-fF-2tB" kind="relationship" relationship="detailViewController" id="dHO-nK-zcG"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihz-aB-zyX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-231" y="532"/>
         </scene>
     </scenes>
 </document>
