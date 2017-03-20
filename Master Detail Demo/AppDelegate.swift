@@ -13,17 +13,10 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var persistentContainer:NSPersistentContainer!
+    let appCoordinator = AppCoordinator()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        /*
-        NSPersistentContainer.setup { (container) in
-            self.persistentContainer = container
-            guard let postsController = self.window?.rootViewController?.storyboard?.instantiateViewController(withIdentifier: PostsTableViewController.name) as? PostsTableViewController else { return }
-            postsController.managedObjectContext = container.viewContext
-            self.window?.rootViewController = postsController
-        }*/
-        
+        appCoordinator.start(window: window)
         return true
     }
 
