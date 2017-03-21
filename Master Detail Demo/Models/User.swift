@@ -13,15 +13,15 @@ final class User:NSManagedObject, ManagedModel {
     @NSManaged fileprivate(set) var name:String?
     @NSManaged public fileprivate(set) var posts:Set<Post>?
     
-    static func findOrCreateUser(withData data:APIData, in context:NSManagedObjectContext) -> User {
+    static func findOrCreate(withData data:APIData, in context:NSManagedObjectContext) -> User {
         guard let id = data["id"] as? Int16 else { fatalError("Incorrect API response") }
         
-        let user = findOrCreateUser(withId: id, in: context)
+        let user = findOrCreate(withId: id, in: context)
         user.name = data["name"] as? String
         return user
     }
     
-    static func findOrCreateUser(withId id:Int16, in context:NSManagedObjectContext) -> User {
+    static func findOrCreate(withId id:Int16, in context:NSManagedObjectContext) -> User {
         let predicate = NSPredicate(format: "%K == %d", #keyPath(userId), id)
         let user = User.findOrCreate(in: context, matching: predicate) { user in
             user.userId = id

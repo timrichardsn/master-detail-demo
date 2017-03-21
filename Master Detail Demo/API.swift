@@ -9,7 +9,7 @@
 import Foundation
 
 typealias APIData = [String:Any]
-typealias PostsFetchResult = [APIData]
+typealias APIFetchResult = [APIData]
 
 enum API {
     case posts, users, albums, photos
@@ -43,7 +43,7 @@ extension API {
 }
 
 extension API {
-    func fetch<T>(completion: @escaping (Result<T>) -> ()) {
+    func fetch(completion: @escaping (Result<APIFetchResult>) -> ()) {
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod
         request.execute(completion: completion)

@@ -35,16 +35,31 @@ extension AppCoordinator {
     }
     
     func fetchPosts() {
-        API.posts.fetch { (result:Result<PostsFetchResult>) in
-            guard case let .success(value) = result, let context = self.persistentContainer?.viewContext else { return }
-            
-            context.performChanges(inBlock: {
-                value.forEach { _ = Post.insertInto(managedObjectContext: context, data: $0) }
+        API.posts.fetch { (result) in
+            self.performChangesWithApiData(result: result, callback: { (data, context) in
+                _ = Post.findOrCreate(withData: data, in: context)
+            })
+        }
+        
+        API.users.fetch { (result) in
+            self.performChangesWithApiData(result: result, callback: { (data, context) in
+                _ = User.findOrCreate(withData: data, in: context)
             })
         }
     }
 }
 
+// MARK: - Private
+fileprivate extension AppCoordinator {
+    func performChangesWithApiData(result:Result<APIFetchResult>, callback:@escaping (APIData, NSManagedObjectContext) -> ()) {
+        guard case let .success(value) = result, let context = persistentContainer?.viewContext else { return }
+        context.performChanges(inBlock: {
+            value.forEach { callback($0, context) }
+        })
+    }
+}
+
+// MARK: - PostsTableViewControllerDelegate
 extension AppCoordinator:PostsTableViewControllerDelegate {
     func postsTableViewControllerDelegate(postsTableViewController: PostsTableViewController, didSelectPost post: Post) {
         detailController.configure(post: post)

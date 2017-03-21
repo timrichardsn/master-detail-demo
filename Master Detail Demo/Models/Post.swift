@@ -15,15 +15,17 @@ final class Post:NSManagedObject, ManagedModel {
     @NSManaged fileprivate(set) var body:String?
     @NSManaged public fileprivate(set) var user:User
     
-    static func insertInto(managedObjectContext:NSManagedObjectContext, data:APIData) -> Post {
-        guard let postId = data["id"] as? Int16, let userId = data["userId"] as? Int16 else { fatalError("Incorrect API response") }
+    static func findOrCreate(withData data:APIData, in context:NSManagedObjectContext) -> Post {
+        guard let id = data["id"] as? Int16, let userId = data["userId"] as? Int16 else { fatalError("Incorrect API response") }
         
-        let post:Post = managedObjectContext.insertManaged()
-        post.postId = postId
-        post.userId = userId
-        post.title = data["title"] as? String
-        post.body = data["body"] as? String
-        post.user = User.findOrCreateUser(withId: userId, in: managedObjectContext)
+        let predicate = NSPredicate(format: "%K == %d", #keyPath(postId), id)
+        let post = Post.findOrCreate(in: context, matching: predicate) { (post) in
+            post.postId = id
+            post.userId = userId
+            post.title = data["title"] as? String
+            post.body = data["body"] as? String
+            post.user = User.findOrCreate(withId: userId, in: context)
+        }
         
         return post
     }

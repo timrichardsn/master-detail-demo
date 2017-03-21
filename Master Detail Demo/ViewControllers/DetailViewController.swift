@@ -14,6 +14,6 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController {
     func configure(post:Post) {
-        titleLabel.text = post.title
+        titleLabel.text = post.user.name ?? "Unnamed"
     }
 }
