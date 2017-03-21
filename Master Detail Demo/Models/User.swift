@@ -12,6 +12,7 @@ final class User:NSManagedObject, ManagedModel {
     @NSManaged fileprivate(set) var userId:Int16
     @NSManaged fileprivate(set) var name:String?
     @NSManaged public fileprivate(set) var posts:Set<Post>?
+    @NSManaged public fileprivate(set) var albums:Set<Album>?
     
     static func findOrCreate(withData data:APIData, in context:NSManagedObjectContext) -> User {
         guard let id = data["id"] as? Int16 else { fatalError("Incorrect API response") }

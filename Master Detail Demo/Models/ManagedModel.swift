@@ -11,6 +11,7 @@ import CoreData
 protocol ManagedModel: class, NSFetchRequestResult {
     static var entityName: String { get }
     static var defaultSortDescriptors: [NSSortDescriptor] { get }
+    static func findOrCreate(withData data:APIData, in context:NSManagedObjectContext) -> Self
 }
 
 extension ManagedModel {
