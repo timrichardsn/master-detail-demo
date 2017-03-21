@@ -42,7 +42,7 @@ extension API {
 }
 
 extension API {
-    func fetch(completion: @escaping (Result<PostsFetchResult>) -> ()) {
+    func fetch<T>(completion: @escaping (Result<T>) -> ()) {
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod
         request.execute(completion: completion)
