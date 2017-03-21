@@ -4,7 +4,16 @@
         <attribute name="albumId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" indexed="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="album" inverseEntity="Photo" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="albums" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Photo" representedClassName=".Photo" syncable="YES">
+        <attribute name="albumId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="photoId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" indexed="YES" syncable="YES"/>
+        <attribute name="thumbnailUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Album" inverseName="photos" inverseEntity="Album" syncable="YES"/>
     </entity>
     <entity name="Post" representedClassName=".Post" syncable="YES">
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
@@ -22,6 +31,7 @@
     <elements>
         <element name="Post" positionX="-54" positionY="-9" width="128" height="120"/>
         <element name="User" positionX="-54" positionY="18" width="128" height="105"/>
-        <element name="Album" positionX="-36" positionY="45" width="128" height="105"/>
+        <element name="Album" positionX="-36" positionY="45" width="128" height="120"/>
+        <element name="Photo" positionX="-27" positionY="72" width="128" height="135"/>
     </elements>
 </model>
