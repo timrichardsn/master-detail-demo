@@ -33,9 +33,7 @@ extension AppCoordinator {
             self.fetchPosts()
         }
     }
-}
-
-fileprivate extension AppCoordinator {
+    
     func fetchPosts() {
         API.posts.fetch { (result:Result<PostsFetchResult>) in
             guard case let .success(value) = result, let context = self.persistentContainer?.viewContext else { return }

@@ -8,7 +8,8 @@
 
 import Foundation
 
-typealias PostsFetchResult = [PostData]
+typealias APIData = [String:Any]
+typealias PostsFetchResult = [APIData]
 
 enum API {
     case posts, users, albums, photos

@@ -8,15 +8,14 @@
 
 import CoreData
 
-typealias PostData = [String:Any]
-
 final class Post:NSManagedObject, ManagedModel {
     @NSManaged fileprivate(set) var postId:Int16
     @NSManaged fileprivate(set) var userId:Int16
     @NSManaged fileprivate(set) var title:String?
     @NSManaged fileprivate(set) var body:String?
+    @NSManaged public fileprivate(set) var user:User
     
-    static func insertInto(managedObjectContext:NSManagedObjectContext, data:PostData) -> Post {
+    static func insertInto(managedObjectContext:NSManagedObjectContext, data:APIData) -> Post {
         guard let postId = data["id"] as? Int16, let userId = data["userId"] as? Int16 else { fatalError("Incorrect API response") }
         
         let post:Post = managedObjectContext.insertManaged()
@@ -24,6 +23,8 @@ final class Post:NSManagedObject, ManagedModel {
         post.userId = userId
         post.title = data["title"] as? String
         post.body = data["body"] as? String
+        post.user = User.findOrCreate(userWithId: userId, in: managedObjectContext)
+        
         return post
     }
     

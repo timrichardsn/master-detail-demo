@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appCoordinator.start(window: window)
         return true
     }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        appCoordinator.fetchPosts()
     }
 }
 
