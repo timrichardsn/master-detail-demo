@@ -9,7 +9,13 @@
 import UIKit
 
 extension UIViewController {
+    
     class var name:String {
         return String(describing: self)
+    }
+    
+    class func instance<A:UIViewController>() -> A {
+        // in production, a more elegant solution for getting the correct storyboard would need to be implemented
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: name) as! A
     }
 }

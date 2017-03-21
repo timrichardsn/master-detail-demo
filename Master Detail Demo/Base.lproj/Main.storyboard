@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="S3a-f8-Jyf">
             <objects>
-                <viewController id="0RJ-fF-2tB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="0RJ-fF-2tB" customClass="DetailViewController" customModule="Master_Detail_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u92-AQ-yjc"/>
                         <viewControllerLayoutGuide type="bottom" id="EQl-Oz-Sg0"/>
@@ -20,12 +20,27 @@
                     <view key="view" contentMode="scaleToFill" id="DPa-Ne-Zg3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rX-yE-4PB">
+                                <rect key="frame" x="16" y="20" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8rX-yE-4PB" firstAttribute="leading" secondItem="DPa-Ne-Zg3" secondAttribute="leading" constant="16" id="cLB-ab-5W9"/>
+                            <constraint firstItem="8rX-yE-4PB" firstAttribute="top" secondItem="u92-AQ-yjc" secondAttribute="bottom" id="qel-ej-0QZ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="8rX-yE-4PB" id="gEu-D9-Jec"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtu-AE-Mzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="721" y="860"/>
+            <point key="canvasLocation" x="1618" y="243"/>
         </scene>
         <!--Challenge Accepted!-->
         <scene sceneID="3Sv-M7-ccI">
@@ -40,7 +55,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cmK-F7-t5u" id="WbG-eT-J4q">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -54,7 +69,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEA-jG-TOR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1673" y="205"/>
+            <point key="canvasLocation" x="833" y="242"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ZF1-ee-nb3">
@@ -73,32 +88,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ut-Ig-lfv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1220" y="-331"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="j1f-Af-4dd">
-            <objects>
-                <navigationController id="niu-0p-rFz" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dNC-7K-O8i">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PTX-Sb-ter" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="721" y="205"/>
-        </scene>
-        <!--Split View Controller-->
-        <scene sceneID="ud8-ah-UHD">
-            <objects>
-                <splitViewController storyboardIdentifier="SplitViewController" id="Zlp-f8-hkb" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="niu-0p-rFz" kind="relationship" relationship="masterViewController" id="ZRx-BS-Koz"/>
-                        <segue destination="0RJ-fF-2tB" kind="relationship" relationship="detailViewController" id="dHO-nK-zcG"/>
-                    </connections>
-                </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ihz-aB-zyX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-231" y="532"/>
         </scene>
     </scenes>
 </document>

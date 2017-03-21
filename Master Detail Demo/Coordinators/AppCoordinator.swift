@@ -9,9 +9,16 @@
 import UIKit
 import CoreData
 
-class AppCoordinator {
-    var splitController:UISplitViewController?
-    var persistentContainer:NSPersistentContainer?
+final class AppCoordinator {
+    fileprivate lazy var splitController = UISplitViewController()
+    fileprivate lazy var detailController:DetailViewController = DetailViewController.instance()
+    fileprivate lazy var postsController:PostsTableViewController = {
+        let p:PostsTableViewController = PostsTableViewController.instance()
+        p.delegate = self
+        return p
+    }()
+    
+    fileprivate var persistentContainer:NSPersistentContainer?
 }
 
 extension AppCoordinator {
@@ -19,14 +26,10 @@ extension AppCoordinator {
         NSPersistentContainer.setup { (container) in
             self.persistentContainer = container
             
-            guard let splitController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SplitViewController") as? UISplitViewController else { return }
-            guard let nav = splitController.viewControllers[0] as? UINavigationController else { return }
+            self.postsController.managedObjectContext = container.viewContext
+            self.splitController.viewControllers = [UINavigationController(rootViewController: self.postsController), self.detailController]
             
-            let postsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: PostsTableViewController.name) as! PostsTableViewController
-            postsController.managedObjectContext = container.viewContext
-            nav.viewControllers = [postsController]
-            
-            window?.rootViewController = splitController
+            window?.rootViewController = self.splitController
             self.fetchPosts()
         }
     }
@@ -41,5 +44,11 @@ fileprivate extension AppCoordinator {
                 value.forEach { _ = Post.insertInto(managedObjectContext: context, data: $0) }
             })
         })
+    }
+}
+
+extension AppCoordinator:PostsTableViewControllerDelegate {
+    func postsTableViewControllerDelegate(postsTableViewController: PostsTableViewController, didSelectPost post: Post) {
+        detailController.configure(post: post)
     }
 }

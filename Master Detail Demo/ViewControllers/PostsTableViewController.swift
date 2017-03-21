@@ -9,9 +9,14 @@
 import UIKit
 import CoreData
 
+protocol PostsTableViewControllerDelegate:class {
+    func postsTableViewControllerDelegate(postsTableViewController:PostsTableViewController, didSelectPost post:Post)
+}
+
 class PostsTableViewController: UITableViewController {
 
     var managedObjectContext:NSManagedObjectContext!
+    weak var delegate:PostsTableViewControllerDelegate?
     
     fileprivate var fetchedResultsController:NSFetchedResultsController<Post>?
     
@@ -79,5 +84,10 @@ extension PostsTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let section = fetchedResultsController?.sections?[section] else { return 0 }
         return section.numberOfObjects
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let post = fetchedResultsController?.object(at: indexPath) else { return }
+        delegate?.postsTableViewControllerDelegate(postsTableViewController: self, didSelectPost: post)
     }
 }
