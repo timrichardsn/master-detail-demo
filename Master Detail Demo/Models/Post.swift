@@ -23,7 +23,7 @@ final class Post:NSManagedObject, ManagedModel {
         post.userId = userId
         post.title = data["title"] as? String
         post.body = data["body"] as? String
-        post.user = User.findOrCreate(userWithId: userId, in: managedObjectContext)
+        post.user = User.findOrCreateUser(withId: userId, in: managedObjectContext)
         
         return post
     }

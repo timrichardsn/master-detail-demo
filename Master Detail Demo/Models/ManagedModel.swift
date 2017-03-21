@@ -51,11 +51,13 @@ extension ManagedModel where Self: NSManagedObject {
                 request.predicate = predicate
                 request.returnsObjectsAsFaults = false
                 request.fetchLimit = 1
-                }.first
+            }.first
         }
         return object
     }
     
+    // iterates over objects the context currently knows about (registeredObjects)
+    // only interested in faults (objects that contain no data), otherwise this operation is expensive
     static func materializedObject(in context: NSManagedObjectContext, matching predicate: NSPredicate) -> Self? {
         for object in context.registeredObjects where !object.isFault {
             guard let result = object as? Self, predicate.evaluate(with: result) else { continue }
