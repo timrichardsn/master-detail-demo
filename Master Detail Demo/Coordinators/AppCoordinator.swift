@@ -53,11 +53,12 @@ extension AppCoordinator {
             })
         }
         
+        /*
         API.photos.fetch { (result) in
             self.performChangesWithApiData(result: result, callback: { (data, context) in
                 _ = Photo.findOrCreate(withData: data, in: context)
             })
-        }
+        }*/
     }
 }
 
