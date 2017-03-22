@@ -51,34 +51,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" rowHeight="55" id="cmK-F7-t5u" customClass="PostTableViewCell" customModule="Master_Detail_Demo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="55"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" id="cmK-F7-t5u" customClass="PostTableViewCell" customModule="Master_Detail_Demo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cmK-F7-t5u" id="WbG-eT-J4q">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXA-6b-tQC">
-                                            <rect key="frame" x="15" y="8" width="345" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEw-js-gni">
-                                            <rect key="frame" x="15" y="29.5" width="345" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GNb-b0-CVc">
+                                            <rect key="frame" x="15" y="8" width="345" height="27.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXA-6b-tQC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEw-js-gni">
+                                                    <rect key="frame" x="0.0" y="19.5" width="345" height="8"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="MXA-6b-tQC" firstAttribute="leading" secondItem="WbG-eT-J4q" secondAttribute="leading" constant="15" id="Mah-iH-cxO"/>
-                                        <constraint firstAttribute="trailing" secondItem="MXA-6b-tQC" secondAttribute="trailing" constant="15" id="UWn-Hr-zU7"/>
-                                        <constraint firstItem="MXA-6b-tQC" firstAttribute="top" secondItem="WbG-eT-J4q" secondAttribute="top" constant="8" id="aln-Im-30V"/>
-                                        <constraint firstAttribute="bottom" secondItem="QEw-js-gni" secondAttribute="bottom" constant="8" id="fC2-W9-fI8"/>
-                                        <constraint firstItem="QEw-js-gni" firstAttribute="top" secondItem="MXA-6b-tQC" secondAttribute="bottom" constant="4.5" id="h4e-rN-qLn"/>
-                                        <constraint firstAttribute="trailing" secondItem="QEw-js-gni" secondAttribute="trailing" constant="15" id="i3Y-MM-oQb"/>
-                                        <constraint firstItem="QEw-js-gni" firstAttribute="leading" secondItem="WbG-eT-J4q" secondAttribute="leading" constant="15" id="zoc-gu-Wb4"/>
+                                        <constraint firstItem="GNb-b0-CVc" firstAttribute="leading" secondItem="WbG-eT-J4q" secondAttribute="leading" constant="15" id="bWE-lx-CdU"/>
+                                        <constraint firstItem="GNb-b0-CVc" firstAttribute="top" secondItem="WbG-eT-J4q" secondAttribute="top" constant="8" id="bZS-fs-Wa3"/>
+                                        <constraint firstAttribute="trailing" secondItem="GNb-b0-CVc" secondAttribute="trailing" constant="15" id="jN4-cH-hc6"/>
+                                        <constraint firstAttribute="bottom" secondItem="GNb-b0-CVc" secondAttribute="bottom" constant="8" id="lk2-dk-OsZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
