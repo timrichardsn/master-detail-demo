@@ -93,4 +93,16 @@ extension PostsTableViewController {
         guard let post = fetchedResultsController?.object(at: indexPath) else { return }
         delegate?.postsTableViewControllerDelegate(postsTableViewController: self, didSelectPost: post)
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            guard let post = self.fetchedResultsController?.object(at: indexPath) else { return }
+            post.delete()
+        }
+        return [deleteAction]
+    }
 }

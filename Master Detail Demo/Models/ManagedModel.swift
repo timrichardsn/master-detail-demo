@@ -66,4 +66,10 @@ extension ManagedModel where Self: NSManagedObject {
         }
         return nil
     }
+    
+    func delete() {
+        managedObjectContext?.performChanges(inBlock: { 
+            self.managedObjectContext?.delete(self)
+        })
+    }
 }

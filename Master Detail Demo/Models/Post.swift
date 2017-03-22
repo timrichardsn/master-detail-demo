@@ -8,13 +8,25 @@
 
 import CoreData
 
-final class Post:NSManagedObject, ManagedModel {
+final class Post:NSManagedObject {
     @NSManaged fileprivate(set) var postId:Int16
     @NSManaged fileprivate(set) var userId:Int16
     @NSManaged fileprivate(set) var title:String?
     @NSManaged fileprivate(set) var body:String?
     @NSManaged public fileprivate(set) var user:User
     
+    override func prepareForDeletion() {
+        let undeletedPosts = (user.posts ?? []).filter({ !$0.isDeleted })
+        let undeletedAlbums = (user.albums ?? []).filter({ !$0.isDeleted })
+        
+        if undeletedPosts.isEmpty && undeletedAlbums.isEmpty {
+            managedObjectContext?.delete(user)
+        }
+    }
+}
+
+// MARK: - ManagedModel
+extension Post: ManagedModel {
     static func findOrCreate(withData data:APIData, in context:NSManagedObjectContext) -> Post {
         guard let id = data["id"] as? Int16, let userId = data["userId"] as? Int16 else { fatalError("Incorrect API response") }
         

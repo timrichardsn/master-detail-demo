@@ -53,14 +53,13 @@ extension AppCoordinator {
                 _ = User.findOrCreate(withData: data, in: context)
             })
         }
-        
+        /*
         API.albums.fetch { (result) in
             self.performChangesWithApiData(result: result, callback: { (data, context) in
                 _ = Album.findOrCreate(withData: data, in: context)
             })
         }
         
-        /*
         API.photos.fetch { (result) in
             self.performChangesWithApiData(result: result, callback: { (data, context) in
                 _ = Photo.findOrCreate(withData: data, in: context)
