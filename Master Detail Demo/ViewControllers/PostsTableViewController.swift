@@ -18,7 +18,14 @@ class PostsTableViewController: UITableViewController {
     var managedObjectContext:NSManagedObjectContext!
     weak var delegate:PostsTableViewControllerDelegate?
     
-    fileprivate var fetchedResultsController:NSFetchedResultsController<Post>?
+    fileprivate lazy var fetchedResultsController:NSFetchedResultsController<Post> = {
+        let request = Post.sortedFetchRequest
+        request.returnsObjectsAsFaults = false
+        
+        let controller = NSFetchedResultsController(fetchRequest: request, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        controller.delegate = self
+        return controller
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +33,7 @@ class PostsTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
         
-        let request = Post.sortedFetchRequest
-        request.fetchBatchSize = 20
-        request.returnsObjectsAsFaults = false
-        
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-        fetchedResultsController?.delegate = self
-        try! fetchedResultsController?.performFetch()
+        try! fetchedResultsController.performFetch()
     }
 }
 
@@ -51,9 +52,9 @@ extension PostsTableViewController: NSFetchedResultsControllerDelegate {
             tableView.insertRows(at: [newIndexPath], with: .fade)
         case .update:
             guard let indexPath = indexPath else { fatalError("Index path should be not nil") }
-            let post = fetchedResultsController?.object(at: indexPath)
             guard let cell = tableView.cellForRow(at: indexPath) as? PostTableViewCell else { break }
-            post.flatMap(cell.configure)
+            let post = fetchedResultsController.object(at: indexPath)
+            cell.configure(withPost: post)
         case .move:
             guard let indexPath = indexPath else { fatalError("Index path should be not nil") }
             guard let newIndexPath = newIndexPath else { fatalError("New index path should be not nil") }
@@ -74,9 +75,9 @@ extension PostsTableViewController: NSFetchedResultsControllerDelegate {
 
 extension PostsTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let post = fetchedResultsController?.object(at: indexPath)
+        let post = fetchedResultsController.object(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
-        post.flatMap(cell.configure)
+        cell.configure(withPost: post)
         return cell
     }
 }
@@ -85,12 +86,12 @@ extension PostsTableViewController {
 
 extension PostsTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let section = fetchedResultsController?.sections?[section] else { return 0 }
+        guard let section = fetchedResultsController.sections?[section] else { return 0 }
         return section.numberOfObjects
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let post = fetchedResultsController?.object(at: indexPath) else { return }
+        let post = fetchedResultsController.object(at: indexPath)
         delegate?.postsTableViewControllerDelegate(postsTableViewController: self, didSelectPost: post)
     }
     
@@ -100,7 +101,7 @@ extension PostsTableViewController {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            guard let post = self.fetchedResultsController?.object(at: indexPath) else { return }
+            let post = self.fetchedResultsController.object(at: indexPath)
             post.delete()
         }
         return [deleteAction]
