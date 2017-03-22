@@ -10,10 +10,23 @@ import UIKit
 
 class DetailViewController: UIViewController {
     @IBOutlet fileprivate weak var titleLabel: UILabel!
+    @IBOutlet weak var userName: UILabel!
+    
+    var viewModel:DetailViewModel? {
+        didSet {
+            guard let viewModel = viewModel else { return }
+            viewModel.delegate = self
+        }
+    }
 }
 
-extension DetailViewController {
-    func configure(post:Post) {
-        titleLabel.text = post.user.name ?? "Unnamed"
+// MARK: - DetailViewModelDelegate
+extension DetailViewController: DetailViewModelDelegate {
+    func detailViewModelDelegate(didUpdateTitle title: String) {
+        titleLabel.text = title
+    }
+    
+    func detailViewModelDelegate(didUpdateUserName name: String) {
+        userName.text = name
     }
 }
