@@ -45,7 +45,6 @@ extension PostsTableViewController: NSFetchedResultsControllerDelegate {
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
         switch type {
         case .insert:
             guard let newIndexPath = newIndexPath else { fatalError("New index path should be not nil") }
@@ -80,6 +79,14 @@ extension PostsTableViewController {
         cell.configure(withPost: post)
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            let post = self.fetchedResultsController.object(at: indexPath)
+            post.delete()
+        }
+        return [deleteAction]
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -97,13 +104,5 @@ extension PostsTableViewController {
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
-    }
-    
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            let post = self.fetchedResultsController.object(at: indexPath)
-            post.delete()
-        }
-        return [deleteAction]
     }
 }
