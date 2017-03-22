@@ -30,8 +30,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuT-Mk-v1A">
-                                        <rect key="frame" x="0.0" y="20.5" width="79" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post body" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuT-Mk-v1A">
+                                        <rect key="frame" x="0.0" y="20.5" width="77.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -47,8 +47,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bodyLabel" destination="yuT-Mk-v1A" id="Nw3-H1-jfv"/>
                         <outlet property="titleLabel" destination="8rX-yE-4PB" id="gEu-D9-Jec"/>
-                        <outlet property="userName" destination="yuT-Mk-v1A" id="NYP-XW-n0K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtu-AE-Mzr" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -10,7 +10,7 @@ import Foundation
 
 protocol DetailViewModelDelegate: class {
     func detailViewModelDelegate(didUpdateTitle title:String)
-    func detailViewModelDelegate(didUpdateUserName name:String)
+    func detailViewModelDelegate(didUpdateBody body:String)
 }
 
 class DetailViewModel {
@@ -18,6 +18,6 @@ class DetailViewModel {
     
     func configure(withPost post:Post) {
         delegate?.detailViewModelDelegate(didUpdateTitle: post.title ?? "")
-        delegate?.detailViewModelDelegate(didUpdateUserName: post.user.name ?? "")
+        delegate?.detailViewModelDelegate(didUpdateBody: post.body ?? "")
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     @IBOutlet fileprivate weak var titleLabel: UILabel!
-    @IBOutlet weak var userName: UILabel!
+    @IBOutlet fileprivate weak var bodyLabel: UILabel!
     
     var viewModel:DetailViewModel? {
         didSet {
@@ -26,7 +26,7 @@ extension DetailViewController: DetailViewModelDelegate {
         titleLabel.text = title
     }
     
-    func detailViewModelDelegate(didUpdateUserName name: String) {
-        userName.text = name
+    func detailViewModelDelegate(didUpdateBody body: String) {
+        bodyLabel.text = body
     }
 }
