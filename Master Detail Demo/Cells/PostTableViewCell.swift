@@ -9,5 +9,11 @@
 import UIKit
 
 class PostTableViewCell: UITableViewCell {
-
+    @IBOutlet fileprivate weak var postTitle: UILabel!
+    @IBOutlet fileprivate weak var postUser: UILabel!
+    
+    func configure(withPost post:Post) {
+        postTitle.text = post.title ?? ""
+        postUser.text = post.user.name ?? ""
+    }
 }

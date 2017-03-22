@@ -23,6 +23,9 @@ class PostsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 50
+        
         let request = Post.sortedFetchRequest
         request.fetchBatchSize = 20
         request.returnsObjectsAsFaults = false
@@ -49,8 +52,8 @@ extension PostsTableViewController: NSFetchedResultsControllerDelegate {
         case .update:
             guard let indexPath = indexPath else { fatalError("Index path should be not nil") }
             let post = fetchedResultsController?.object(at: indexPath)
-            guard let cell = tableView.cellForRow(at: indexPath) else { break }
-            cell.textLabel?.text = post?.title
+            guard let cell = tableView.cellForRow(at: indexPath) as? PostTableViewCell else { break }
+            post.flatMap(cell.configure)
         case .move:
             guard let indexPath = indexPath else { fatalError("Index path should be not nil") }
             guard let newIndexPath = newIndexPath else { fatalError("New index path should be not nil") }
@@ -72,8 +75,8 @@ extension PostsTableViewController: NSFetchedResultsControllerDelegate {
 extension PostsTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = fetchedResultsController?.object(at: indexPath)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
-        cell.textLabel?.text = post?.title
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
+        post.flatMap(cell.configure)
         return cell
     }
 }
