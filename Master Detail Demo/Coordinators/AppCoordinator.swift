@@ -14,13 +14,13 @@ final class AppCoordinator {
     fileprivate lazy var detailViewModel = DetailViewModel()
     
     fileprivate lazy var detailController:DetailViewController = {
-        let detailController:DetailViewController = DetailViewController.instance()
+        let detailController:DetailViewController = DetailViewController.instance(in: .main)
         detailController.viewModel = self.detailViewModel
         return detailController
     }()
     
     fileprivate lazy var postsController:PostsTableViewController = {
-        let p:PostsTableViewController = PostsTableViewController.instance()
+        let p:PostsTableViewController = PostsTableViewController.instance(in: .main)
         p.delegate = self
         return p
     }()
@@ -37,11 +37,11 @@ extension AppCoordinator {
             self.splitController.viewControllers = [UINavigationController(rootViewController: self.postsController), self.detailController]
             
             window?.rootViewController = self.splitController
-            self.fetchPosts()
+            self.fetchData()
         }
     }
     
-    func fetchPosts() {
+    func fetchData() {
         API.posts.fetch { (result) in
             self.performChangesWithApiData(result: result, callback: { (data, context) in
                 _ = Post.findOrCreate(withData: data, in: context)

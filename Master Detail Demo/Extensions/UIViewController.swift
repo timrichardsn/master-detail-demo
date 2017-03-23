@@ -14,8 +14,8 @@ extension UIViewController {
         return String(describing: self)
     }
     
-    class func instance<A:UIViewController>() -> A {
+    class func instance<A:UIViewController>(in storyboard:Storyboard) -> A {
         // in production, a more elegant solution for getting the correct storyboard would need to be implemented
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: name) as! A
+        return storyboard.instance.instantiateViewController(withIdentifier: name) as! A
     }
 }

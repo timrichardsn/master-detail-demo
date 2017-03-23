@@ -20,6 +20,13 @@ class DetailViewController: UIViewController {
     }
 }
 
+// MARK: - Overrides
+extension DetailViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+}
+
 // MARK: - DetailViewModelDelegate
 extension DetailViewController: DetailViewModelDelegate {
     func detailViewModelDelegate(didUpdateTitle title: String) {
