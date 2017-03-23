@@ -12,10 +12,12 @@ import CoreData
 final class AppCoordinator {
     fileprivate lazy var splitController = UISplitViewController()
     fileprivate lazy var detailViewModel = DetailViewModel()
+    fileprivate lazy var albumsViewModel = AlbumsViewModel()
     
     fileprivate lazy var detailController:DetailViewController = {
         let detailController:DetailViewController = DetailViewController.instance(in: .main)
         detailController.viewModel = self.detailViewModel
+        detailController.delegate = self
         return detailController
     }()
     
@@ -79,8 +81,17 @@ fileprivate extension AppCoordinator {
 }
 
 // MARK: - PostsTableViewControllerDelegate
-extension AppCoordinator:PostsTableViewControllerDelegate {
+extension AppCoordinator: PostsTableViewControllerDelegate {
     func postsTableViewControllerDelegate(postsTableViewController: PostsTableViewController, didSelectPost post: Post) {
         detailViewModel.configure(with: post)
+        albumsViewModel.configure(with: post)
+    }
+}
+
+// MARK: - DetailViewControllerDelegate
+extension AppCoordinator: DetailViewControllerDelegate {
+    func detailViewController(detailViewController: DetailViewController, prepare albumsController: AlbumsTableViewController) {
+        albumsController.viewModel = albumsViewModel
+        albumsController.managedObjectContext = persistentContainer?.viewContext
     }
 }

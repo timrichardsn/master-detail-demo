@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol DetailViewControllerDelegate: class {
+    func detailViewController(detailViewController:DetailViewController, prepare albumsController:AlbumsTableViewController)
+}
+
 class DetailViewController: UIViewController {
     @IBOutlet fileprivate weak var titleLabel: UILabel!
     @IBOutlet fileprivate weak var bodyLabel: UILabel!
+    
+    weak var delegate:DetailViewControllerDelegate?
     
     var viewModel:DetailViewModel? {
         didSet {
@@ -23,7 +29,9 @@ class DetailViewController: UIViewController {
 // MARK: - Overrides
 extension DetailViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if let albumsController = segue.destination as? AlbumsTableViewController {
+            delegate?.detailViewController(detailViewController: self, prepare: albumsController)
+        }
     }
 }
 

@@ -8,12 +8,15 @@
 
 import CoreData
 
-final class User:NSManagedObject, ManagedModel {
+final class User:NSManagedObject {
     @NSManaged fileprivate(set) var userId:Int16
     @NSManaged fileprivate(set) var name:String?
     @NSManaged public fileprivate(set) var posts:Set<Post>?
     @NSManaged public fileprivate(set) var albums:Set<Album>?
-    
+}
+
+// MARK: - ManagedModel
+extension User: ManagedModel {
     static func findOrCreate(withData data:APIData, in context:NSManagedObjectContext) -> User {
         guard let id = data["id"] as? Int16 else { fatalError("Incorrect API response") }
         
@@ -32,5 +35,11 @@ final class User:NSManagedObject, ManagedModel {
     
     static var defaultSortDescriptors: [NSSortDescriptor] {
         return [NSSortDescriptor(key: #keyPath(userId), ascending: false)]
+    }
+}
+
+extension User {
+    var mutableAlbumsSet:NSMutableSet {
+        return mutableSetValue(forKey: #keyPath(albums))
     }
 }

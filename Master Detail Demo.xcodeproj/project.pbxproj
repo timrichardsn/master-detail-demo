@@ -31,6 +31,7 @@
 		22B3D43E1E83B46500879086 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3D43D1E83B46500879086 /* ViewModel.swift */; };
 		22B3D4401E83B9FF00879086 /* AlbumsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3D43F1E83B9FF00879086 /* AlbumsTableViewController.swift */; };
 		22B3D4421E83BA9D00879086 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3D4411E83BA9D00879086 /* Storyboard.swift */; };
+		22B3D4441E83BCFE00879086 /* AlbumsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3D4431E83BCFE00879086 /* AlbumsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +39,7 @@
 		226F9C8D1E815AD6000D3C16 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		226F9C8F1E818C6D000D3C16 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		226F9C911E818F7C000D3C16 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
-		226F9C941E82D06C000D3C16 /* DetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewModel.swift; path = ViewModels/DetailViewModel.swift; sourceTree = "<group>"; };
+		226F9C941E82D06C000D3C16 /* DetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		227CE0AC1E7C248F00689464 /* Master Detail Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Master Detail Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		227CE0AF1E7C248F00689464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		227CE0B41E7C248F00689464 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 		22B3D43D1E83B46500879086 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		22B3D43F1E83B9FF00879086 /* AlbumsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewController.swift; sourceTree = "<group>"; };
 		22B3D4411E83BA9D00879086 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		22B3D4431E83BCFE00879086 /* AlbumsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +79,9 @@
 			isa = PBXGroup;
 			children = (
 				226F9C941E82D06C000D3C16 /* DetailViewModel.swift */,
+				22B3D4431E83BCFE00879086 /* AlbumsViewModel.swift */,
 			);
-			name = ViewModels;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		227CE0A31E7C248E00689464 = {
@@ -252,6 +255,7 @@
 			files = (
 				229EE4D71E80241C00E53A80 /* API.swift in Sources */,
 				227CE0D71E7C2C8D00689464 /* ManagedModel.swift in Sources */,
+				22B3D4441E83BCFE00879086 /* AlbumsViewModel.swift in Sources */,
 				229EE4DE1E80425300E53A80 /* PostTableViewCell.swift in Sources */,
 				227CE0D91E7C373F00689464 /* PostsTableViewController.swift in Sources */,
 				229EE4DB1E802C4A00E53A80 /* URLRequest.swift in Sources */,
