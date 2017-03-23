@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     @IBOutlet fileprivate weak var bodyLabel: UILabel!
     
     weak var delegate:DetailViewControllerDelegate?
+    var album:AlbumsTableViewController?
     
     var viewModel:DetailViewModel? {
         didSet {

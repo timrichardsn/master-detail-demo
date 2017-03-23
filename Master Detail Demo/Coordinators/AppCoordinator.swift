@@ -27,7 +27,7 @@ final class AppCoordinator {
         return p
     }()
     
-    fileprivate var persistentContainer:NSPersistentContainer?
+    var persistentContainer:NSPersistentContainer?
 }
 
 extension AppCoordinator {
@@ -55,13 +55,13 @@ extension AppCoordinator {
                 _ = User.findOrCreate(withData: data, in: context)
             })
         }
-        /*
+        
         API.albums.fetch { (result) in
             self.performChangesWithApiData(result: result, callback: { (data, context) in
                 _ = Album.findOrCreate(withData: data, in: context)
             })
         }
-        
+        /*
         API.photos.fetch { (result) in
             self.performChangesWithApiData(result: result, callback: { (data, context) in
                 _ = Photo.findOrCreate(withData: data, in: context)
@@ -91,7 +91,8 @@ extension AppCoordinator: PostsTableViewControllerDelegate {
 // MARK: - DetailViewControllerDelegate
 extension AppCoordinator: DetailViewControllerDelegate {
     func detailViewController(detailViewController: DetailViewController, prepare albumsController: AlbumsTableViewController) {
-        albumsController.viewModel = albumsViewModel
         albumsController.managedObjectContext = persistentContainer?.viewContext
+        albumsController.viewModel = albumsViewModel
+        
     }
 }
