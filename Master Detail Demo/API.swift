@@ -46,6 +46,6 @@ extension API {
     func fetch(completion: @escaping (Result<APIFetchResult>) -> ()) {
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod
-        request.execute(completion: completion)
+        request.perform(completion: completion)
     }
 }

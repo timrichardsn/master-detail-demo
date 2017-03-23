@@ -15,6 +15,13 @@ extension NSManagedObjectContext {
         return managedModel
     }
     
+    func addContextObserver(forName name:NSNotification.Name, handler: @escaping (Notification) -> ()) -> NSObjectProtocol {
+        let observer = NotificationCenter.default.addObserver(forName: name, object: self, queue: nil) { (notification) in
+            handler(notification)
+        }
+        return observer
+    }
+    
     func saveOrRollback() -> Bool {
         do {
             try save()
@@ -29,6 +36,12 @@ extension NSManagedObjectContext {
         perform {
             inBlock()
             _ = self.saveOrRollback()
+        }
+    }
+    
+    func performMerge(fromContextDidSave notification:Notification) {
+        perform {
+            self.mergeChanges(fromContextDidSave: notification)
         }
     }
 }

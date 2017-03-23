@@ -27,15 +27,15 @@ final class AppCoordinator {
         return p
     }()
     
-    var persistentContainer:NSPersistentContainer?
+    var syncCoordinator:SyncCoordinator?
 }
 
 extension AppCoordinator {
     func start(window:UIWindow?) {
         NSPersistentContainer.setup { (container) in
-            self.persistentContainer = container
+            self.syncCoordinator = SyncCoordinator(persistentContainer: container)
             
-            self.postsController.managedObjectContext = container.viewContext
+            self.postsController.managedObjectContext = self.syncCoordinator?.mainContext
             self.splitController.viewControllers = [UINavigationController(rootViewController: self.postsController), self.detailController]
             
             window?.rootViewController = self.splitController
@@ -61,19 +61,19 @@ extension AppCoordinator {
                 _ = Album.findOrCreate(withData: data, in: context)
             })
         }
-        /*
+        
         API.photos.fetch { (result) in
             self.performChangesWithApiData(result: result, callback: { (data, context) in
                 _ = Photo.findOrCreate(withData: data, in: context)
             })
-        }*/
+        }
     }
 }
 
 // MARK: - Private
 fileprivate extension AppCoordinator {
     func performChangesWithApiData(result:Result<APIFetchResult>, callback:@escaping (APIData, NSManagedObjectContext) -> ()) {
-        guard case let .success(value) = result, let context = persistentContainer?.viewContext else { return }
+        guard case let .success(value) = result, let context = syncCoordinator?.backgroundContext else { return }
         context.performChanges(inBlock: {
             value.forEach { callback($0, context) }
         })
@@ -91,7 +91,7 @@ extension AppCoordinator: PostsTableViewControllerDelegate {
 // MARK: - DetailViewControllerDelegate
 extension AppCoordinator: DetailViewControllerDelegate {
     func detailViewController(detailViewController: DetailViewController, prepare albumsController: AlbumsTableViewController) {
-        albumsController.managedObjectContext = persistentContainer?.viewContext
+        albumsController.managedObjectContext = syncCoordinator?.mainContext
         albumsController.viewModel = albumsViewModel
         
     }

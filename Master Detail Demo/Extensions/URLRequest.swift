@@ -9,7 +9,7 @@
 import Foundation
 
 extension URLRequest {
-    func execute<T>(completion: @escaping (Result<T>) -> ()) {
+    func perform<T>(completion: @escaping (Result<T>) -> ()) {
         
         let task = URLSession.shared.dataTask(with: self) { (data, _, error) in
             
@@ -18,13 +18,13 @@ extension URLRequest {
                 return
             }
             
-            guard let d = data, let json = try? JSONSerialization.jsonObject(with: d, options: []), let result = json as? T else {
+            guard let d = data, let json = try? JSONSerialization.jsonObject(with: d, options: []), let value = json as? T else {
                 // TODO: full error handling should be correctly processed in production
                 completion(Result.failure(error: NSError(domain: "local", code: 0, userInfo: [NSLocalizedDescriptionKey:""])))
                 return
             }
             
-            completion(Result.success(result))
+            completion(Result.success(value))
         }
         
         task.resume()
