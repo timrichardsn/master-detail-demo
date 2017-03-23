@@ -28,6 +28,7 @@
 		229EE4D91E80260B00E53A80 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EE4D81E80260B00E53A80 /* Result.swift */; };
 		229EE4DB1E802C4A00E53A80 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EE4DA1E802C4A00E53A80 /* URLRequest.swift */; };
 		229EE4DE1E80425300E53A80 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EE4DD1E80425300E53A80 /* PostTableViewCell.swift */; };
+		22B3D43E1E83B46500879086 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3D43D1E83B46500879086 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		229EE4D81E80260B00E53A80 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		229EE4DA1E802C4A00E53A80 /* URLRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		229EE4DD1E80425300E53A80 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		22B3D43D1E83B46500879086 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		227CE0AE1E7C248F00689464 /* Master Detail Demo */ = {
 			isa = PBXGroup;
 			children = (
+				22B3D43C1E83B41000879086 /* Protocols */,
 				226F9C931E82D03F000D3C16 /* ViewModels */,
 				229EE4DC1E80423600E53A80 /* Cells */,
 				229EE4D31E8013B700E53A80 /* Coordinators */,
@@ -116,7 +119,6 @@
 			children = (
 				227CE0CB1E7C2A5800689464 /* MasterDetail.xcdatamodeld */,
 				227CE0D41E7C2BCA00689464 /* Post.swift */,
-				227CE0D61E7C2C8D00689464 /* ManagedModel.swift */,
 				226F9C8D1E815AD6000D3C16 /* User.swift */,
 				226F9C8F1E818C6D000D3C16 /* Album.swift */,
 				226F9C911E818F7C000D3C16 /* Photo.swift */,
@@ -158,6 +160,15 @@
 				229EE4DD1E80425300E53A80 /* PostTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		22B3D43C1E83B41000879086 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				227CE0D61E7C2C8D00689464 /* ManagedModel.swift */,
+				22B3D43D1E83B46500879086 /* ViewModel.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +255,7 @@
 				229EE4D91E80260B00E53A80 /* Result.swift in Sources */,
 				226F9C8E1E815AD6000D3C16 /* User.swift in Sources */,
 				226F9C921E818F7C000D3C16 /* Photo.swift in Sources */,
+				22B3D43E1E83B46500879086 /* ViewModel.swift in Sources */,
 				227CE0CD1E7C2A5800689464 /* MasterDetail.xcdatamodeld in Sources */,
 				227CE0B01E7C248F00689464 /* AppDelegate.swift in Sources */,
 				226F9C951E82D06C000D3C16 /* DetailViewModel.swift in Sources */,

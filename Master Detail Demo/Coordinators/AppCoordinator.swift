@@ -81,6 +81,6 @@ fileprivate extension AppCoordinator {
 // MARK: - PostsTableViewControllerDelegate
 extension AppCoordinator:PostsTableViewControllerDelegate {
     func postsTableViewControllerDelegate(postsTableViewController: PostsTableViewController, didSelectPost post: Post) {
-        detailViewModel.configure(withPost: post)
+        detailViewModel.configure(with: post)
     }
 }

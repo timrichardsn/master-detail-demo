@@ -13,10 +13,12 @@ protocol DetailViewModelDelegate: class {
     func detailViewModelDelegate(didUpdateBody body:String)
 }
 
-class DetailViewModel {
+class DetailViewModel: ViewModel {
+    typealias T = DetailViewModelDelegate
+    typealias A = Post
     weak var delegate:DetailViewModelDelegate?
     
-    func configure(withPost post:Post) {
+    func configure(with post:Post) {
         delegate?.detailViewModelDelegate(didUpdateTitle: post.title ?? "")
         delegate?.detailViewModelDelegate(didUpdateBody: post.body ?? "")
     }
