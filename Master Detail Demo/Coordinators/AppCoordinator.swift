@@ -44,16 +44,16 @@ extension AppCoordinator {
     }
     
     func fetchData() {
-        API.posts.fetch { (result) in
-            self.performChangesWithApiData(result: result, callback: { (data, context) in
-                _ = Post.findOrCreate(withData: data, in: context)
-            })
-        }
-        
         API.users.fetch { (result) in
             self.performChangesWithApiData(result: result, callback: { (data, context) in
                 _ = User.findOrCreate(withData: data, in: context)
             })
+            
+            API.posts.fetch { (result) in
+                self.performChangesWithApiData(result: result, callback: { (data, context) in
+                    _ = Post.findOrCreate(withData: data, in: context)
+                })
+            }
         }
         
         API.albums.fetch { (result) in

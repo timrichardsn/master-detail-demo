@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2234126C1E8508C1004387A8 /* ManagedModelObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234126B1E8508C1004387A8 /* ManagedModelObserver.swift */; };
 		226F9C8C1E813C68000D3C16 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F9C8B1E813C68000D3C16 /* DetailViewController.swift */; };
 		226F9C8E1E815AD6000D3C16 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F9C8D1E815AD6000D3C16 /* User.swift */; };
 		226F9C901E818C6D000D3C16 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F9C8F1E818C6D000D3C16 /* Album.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2234126B1E8508C1004387A8 /* ManagedModelObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedModelObserver.swift; sourceTree = "<group>"; };
 		226F9C8B1E813C68000D3C16 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		226F9C8D1E815AD6000D3C16 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		226F9C8F1E818C6D000D3C16 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				229EE4D61E80241C00E53A80 /* API.swift */,
 				229EE4D81E80260B00E53A80 /* Result.swift */,
 				22B3D4411E83BA9D00879086 /* Storyboard.swift */,
+				2234126B1E8508C1004387A8 /* ManagedModelObserver.swift */,
 				22B3D43C1E83B41000879086 /* Protocols */,
 				226F9C931E82D03F000D3C16 /* ViewModels */,
 				229EE4DC1E80423600E53A80 /* Cells */,
@@ -267,6 +270,7 @@
 				22B3D4461E83C93B00879086 /* AlbumTableViewCell.swift in Sources */,
 				22B3D4441E83BCFE00879086 /* AlbumsViewModel.swift in Sources */,
 				229EE4DE1E80425300E53A80 /* PostTableViewCell.swift in Sources */,
+				2234126C1E8508C1004387A8 /* ManagedModelObserver.swift in Sources */,
 				22B3D44C1E842B9300879086 /* SyncCoordinator.swift in Sources */,
 				227CE0D91E7C373F00689464 /* PostsTableViewController.swift in Sources */,
 				229EE4DB1E802C4A00E53A80 /* URLRequest.swift in Sources */,
